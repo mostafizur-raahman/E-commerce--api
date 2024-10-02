@@ -6,5 +6,4 @@ const _config = {
 };
 
 const config = Object.freeze(_config);
-console.log("config ", config);
 module.exports = config;
