@@ -14,6 +14,7 @@ const deleteProdut = async (req, res, next) => {
         if (!exist) {
             throw new Fault("product not found", 404);
         }
+
         const product = await productModel.findOneAndUpdate(
             {
                 _id: new mongoose.Types.ObjectId(id),
@@ -24,6 +25,7 @@ const deleteProdut = async (req, res, next) => {
                 },
             }
         );
+
         return res.status(200).json({
             message: "product deleted successfully",
         });
