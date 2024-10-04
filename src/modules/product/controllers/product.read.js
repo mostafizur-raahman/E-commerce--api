@@ -10,7 +10,10 @@ const read = async (req, res, next) => {
 
         const totalProducts = await productModel.countDocuments();
 
-        const products = await productModel.find({}).skip(skip).limit(limit);
+        const products = await productModel
+            .find({ isDeleted: !true })
+            .skip(skip)
+            .limit(limit);
 
         return res.status(200).json({
             message: "Products retrieved successfully",
