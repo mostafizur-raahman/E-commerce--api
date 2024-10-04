@@ -19,6 +19,10 @@ const productSchema = new Schema(
                 },
             },
         ],
+        isDeleted: {
+            type: Boolean,
+            default: false,
+        },
     },
     {
         timestamps: true,
