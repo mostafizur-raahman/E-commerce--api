@@ -8,7 +8,9 @@ const read = async (req, res, next) => {
 
         const skip = (page - 1) * limit;
 
-        const totalProducts = await productModel.countDocuments();
+        const totalProducts = await productModel.countDocuments({
+            isDeleted: false,
+        });
 
         const products = await productModel
             .find({ isDeleted: !true })
